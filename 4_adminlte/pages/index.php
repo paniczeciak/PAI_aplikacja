@@ -17,6 +17,19 @@
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- icheck bootstrap -->
   <link rel="stylesheet" href="../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+
+    <style>
+        a {
+            color: #777777 !important;
+            transition: color 0.3s ease !important;
+        }
+
+        a:hover {
+            color: #151717 !important;
+        }
+
+
+    </style>
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
 </head>
@@ -44,9 +57,9 @@ ERROR;
 		unset($_SESSION["error"]);
 	}
 	?>
-  <div class="card card-outline card-primary">
+  <div class="card card-outline card-primary" style="border-top: 3px solid #333333;">
     <div class="card-header text-center">
-      <a href="#" class="h1"><b>Kukła</a>
+        <a href="#" class="h1"><img src="../dist/img/logo-kukla.jpg" alt="Logo" style="max-width: 100%; height: auto";></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Zaloguj się aby zarezerwować stolik</p>
@@ -79,7 +92,7 @@ ERROR;
           </div>
           <!-- /.col -->
           <div class="col-5">
-            <button type="submit" class="btn btn-primary btn-block">Logowanie</button>
+            <button type="submit" class="btn btn-block btn-dark" >Logowanie</button>
           </div>
           <!-- /.col -->
         </div>
