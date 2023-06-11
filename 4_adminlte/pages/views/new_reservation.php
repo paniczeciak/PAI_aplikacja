@@ -72,7 +72,7 @@ if (isset($_SESSION["logged"]["last_activity"])){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
 
-
+    <link rel="stylesheet" href="../../dist/css/tpicker.css">
 
 
 
@@ -136,10 +136,12 @@ if (isset($_SESSION["logged"]["last_activity"])){
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!--Bootstrap Timepicker-->
-<script src="../../bower_components/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<!--<script src="../../bower_components/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>-->
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>-->
+
+<script type="text/javascript" src="../../dist/js/tpicker.js"></script>
 
 <!-- Page specific script -->
 
@@ -162,28 +164,37 @@ if (isset($_SESSION["logged"]["last_activity"])){
 </script>
 
 <script type="text/javascript">
-    $('#timepicker2').timepicker({
-        minuteStep: 1,
-        template: 'modal',
-        appendWidgetTo: 'body',
-        showSeconds: true,
-        showMeridian: false,
-        defaultTime: false
+    $( document ).ready(function() {
+        // Date Time Picker Initialization
+        $('.date-time').dateTimePicker();
+        $('.date-time-2').dateTimePicker();
+        $('.date-time-3').dateTimePicker();
     });
 </script>
 
-<script>
-    $(document).ready(function() {
-        $('#timepicker').timepicker({
-            format: 'HH:mm',
-            showMeridian: false,
-            icons: {
-                up: 'fas fa-chevron-up',
-                down: 'fas fa-chevron-down'
-            }
-        });
-    });
-</script>
+<!--<script type="text/javascript">-->
+<!--    $('#timepicker2').timepicker({-->
+<!--        minuteStep: 1,-->
+<!--        template: 'modal',-->
+<!--        appendWidgetTo: 'body',-->
+<!--        showSeconds: true,-->
+<!--        showMeridian: false,-->
+<!--        defaultTime: false-->
+<!--    });-->
+<!--</script>-->
+
+<!--<script>-->
+<!--    $(document).ready(function() {-->
+<!--        $('#timepicker').timepicker({-->
+<!--            format: 'HH:mm',-->
+<!--            showMeridian: false,-->
+<!--            icons: {-->
+<!--                up: 'fas fa-chevron-up',-->
+<!--                down: 'fas fa-chevron-down'-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
 <script>
     $(function () {
@@ -239,10 +250,10 @@ if (isset($_SESSION["logged"]["last_activity"])){
             }
         )
 
-        // //Timepicker
-        // $('#timepicker').datetimepicker({
-        //     format: 'LT'
-        // })
+        //Timepicker
+        $('#timepicker').datetimepicker({
+            format: 'LT'
+        })
 
         //Bootstrap Duallistbox
         $('.duallistbox').bootstrapDualListbox()

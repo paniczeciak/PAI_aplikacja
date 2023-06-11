@@ -80,34 +80,30 @@
                       <!-- Godzina rezerwacji -->
 
                       <div class="form-group">
-                          <label>Wybierz godzinę:</label>
-                          <div class="input-group bootstrap-timepicker timepicker">
-                              <input id="timepicker2" type="text" class="form-control input-small">
-                              <span class="input-group-addon">
-                <i class="glyphicon glyphicon-time"></i>
-            </span>
-                          </div>
+                          <label>Wybierz godzinę rozpoczęcia rezerwacji:</label>
+                          <div class="input-group">
+                          <input type="text" id="timepkr" class="form-control" placeholder="HH:MM" onclick="showpickers('timepkr',24)"/>
+                          <button type="button" class="btn btn-primary" onclick="showpickers('timepkr',24)"><i class="far fa-clock"></i>
+
+                             </div>
                       </div>
 
-<!--                      <div class="form-group">-->
-<!--                          <label>Wybierz godzinę rozpoczęcia rezerwacji:</label>-->
-<!--                          <div class="input-group date" id="reservationdate" data-target-input="nearest">-->
-<!--                              <input type="date" class="form-control"  name="startTime"/>-->
-<!---->
-<!--                          </div>-->
-<!--                      </div>-->
+                      <div class="timepicker" data-target-input="nearest"></div>
+
+                        <!--ChatGPT-->
+                      <div class="form-group">
+                          <label>Podaj liczbę godzin rezerwacji:</label>
+                          <input type="number" id="hoursInput" class="form-control" min="1">
+                      </div>
+
+                      <button type="button" class="btn btn-primary" onclick="calculateEndTime()">Oblicz godzinę zakończenia rezerwacji</button>
 
                       <div class="form-group">
-                          <label>Wybierz godzinę zakończenia rezerwacji:</label>
-                          <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                              <input type="date" class="form-control"  name="endTime"/>
-
-                          </div>
+                          <label>Godzina zakończenia rezerwacji:</label>
+                          <div id="endTimeDisplay"></div>
                       </div>
 
-
-
-                  <!-- Wybór stolika -->
+                      <!-- Wybór stolika -->
                 <div class="form-group">
                   <label>Ile osób przy stoliku:</label>
 
