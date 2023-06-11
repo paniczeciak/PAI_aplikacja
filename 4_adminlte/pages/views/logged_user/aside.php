@@ -46,7 +46,7 @@
 					</a>
 					<ul class="nav nav-treeview">
 						<li class="nav-item">
-							<a href="../../scripts/new_reservation.php" class="nav-link">
+							<a href="new_reservation.php" class="nav-link">
 
 								<p>Nowa rezerwacja</p>
 							</a>

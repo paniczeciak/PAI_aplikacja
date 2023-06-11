@@ -53,12 +53,12 @@
                 header("location: ../pages/views/logged.php");
                 exit();
 
-				    }else { //od tej części kod świruje
+				    }else {
                      //echo "niezalogowany";
                      $_SESSION["error"] = "Błędny login lub hasło!";
                      $status = 0;
                      $address_ip = $_SERVER["SERVER_ADDR"];
-                    //czy nie powinno tu być created_at w prepared stmt?
+
                      $sql = "INSERT INTO `logs` (`user_id`, `status`, `address_ip`) VALUES (?, ?, ?);";
                     $stmt = $conn->prepare($sql);
                      $stmt->bind_param("iss", $user["id"], $status, $address_ip);
