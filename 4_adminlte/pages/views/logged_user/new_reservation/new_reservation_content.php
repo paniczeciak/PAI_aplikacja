@@ -31,7 +31,7 @@
               </div>
               <div class="card-body">
 
-                  <form action="../../scripts/new_reservation.php" method="POST">
+                  <form action="../../scripts/reservation.php" method="POST">
 
                 <!-- Wybór miasta -->
                 <div class="form-group">
@@ -59,7 +59,7 @@
                       <label>Wybierz restauracje:</label>
 
 
-                              <select class="form-control form-control-lg" name="restaurant" id="show">
+                              <select class="form-control form-control-lg" name="address" id="show">
                                   <option value="" >-Wybierz adres restauracji-</option>
                             <!--  Tu działa skrypt js - dynamiczna lista rozwijana -->
                               </select>
@@ -68,10 +68,11 @@
 
                       <!-- Data rezerwacji -->
 
+
                       <div class="form-group">
                           <label>Wybierz datę rezerwacji:</label>
                           <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                              <input type="date" class="form-control"  name="reservation_date"/>
+                              <input type="date" class="form-control"  name="reservation_date" />
 
                           </div>
                       </div>
@@ -79,37 +80,37 @@
 
                       <!-- Godzina rezerwacji -->
 
-                      <div class="form-group">
-                          <label>Wybierz godzinę rozpoczęcia rezerwacji:</label>
-                          <div class="input-group">
-                          <input type="text" id="timepkr" class="form-control" placeholder="HH:MM" onclick="showpickers('timepkr',24)"/>
-                          <button type="button" class="btn btn-primary" onclick="showpickers('timepkr',24)"><i class="far fa-clock"></i>
 
-                             </div>
+
+                      <div class="row">
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label>Wybierz godzinę rozpoczęcia rezerwacji:</label>
+                                  <div class="input-group">
+                                      <input type="text" id="timepkr" class="form-control" placeholder="HH:MM" onclick="showpickers('timepkr',24)" onblur="hidepickers()" pattern="[0-9]{2}:[0-9]{2}" name="start_time" "/>
+                                      <button type="button" class="btn btn-primary" onclick="showpickers('timepkr',24)">
+                                          <i class="far fa-clock"></i>
+                                      </button>
+                                  </div>
+                              </div>
+                              <div class="timepicker" data-target-input="nearest"></div>
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label>Podaj liczbę godzin rezerwacji:</label>
+                                  <input type="number" id="hoursInput" class="form-control" min="1" onblur="calculateEndTime()" />
+                              </div>
+                          </div>
+
+                          <div class="col-md-4">
+                              <div class="form-group">
+                                  <label>Godzina zakończenia rezerwacji:</label>
+                                  <input type="text" id="endTimeDisplay" class="form-control" placeholder="HH:MM" name="end_time" readonly />
+                              </div>
+                          </div>
                       </div>
 
-                      <div class="timepicker" data-target-input="nearest"></div>
-
-                        <!--ChatGPT-->
-                      <div class="form-group">
-                          <label>Podaj liczbę godzin rezerwacji:</label>
-                          <input type="number" id="hoursInput" class="form-control" min="1">
-                      </div>
-
-                      <button type="button" class="btn btn-primary" onclick="calculateEndTime()">Oblicz godzinę zakończenia rezerwacji</button>
-
-                      <div class="form-group">
-                          <label>Godzina zakończenia rezerwacji:</label>
-                          <div id="endTimeDisplay"></div>
-                      </div>
-
-                      <!-- Wybór stolika -->
-                <div class="form-group">
-                  <label>Ile osób przy stoliku:</label>
-
-                        <input type="text" class="form-control""/>
-
-                </div>
 
                 <!--Wysłanie formularza-->
                       <div class="form-group">
@@ -122,9 +123,6 @@
                           </div>
                       </div>
                   </form>
-
-
-
 
               </div>
               <!-- /.card-body -->

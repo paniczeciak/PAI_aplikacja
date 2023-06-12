@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["logged"]) || session_status() != 2){
-    header("location: ../");
+//    header("location: ../");
 }else{
     switch($_SESSION["logged"]["role_id"]){
         case 1:
@@ -100,6 +100,7 @@ if (isset($_SESSION["logged"]["last_activity"])){
     <?php
     require_once "./$role_path/new_reservation/new_reservation_content.php";
     ?>
+
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
@@ -164,39 +165,7 @@ if (isset($_SESSION["logged"]["last_activity"])){
 </script>
 
 <script type="text/javascript">
-    $( document ).ready(function() {
-        // Date Time Picker Initialization
-        $('.date-time').dateTimePicker();
-        $('.date-time-2').dateTimePicker();
-        $('.date-time-3').dateTimePicker();
-    });
-</script>
 
-<!--<script type="text/javascript">-->
-<!--    $('#timepicker2').timepicker({-->
-<!--        minuteStep: 1,-->
-<!--        template: 'modal',-->
-<!--        appendWidgetTo: 'body',-->
-<!--        showSeconds: true,-->
-<!--        showMeridian: false,-->
-<!--        defaultTime: false-->
-<!--    });-->
-<!--</script>-->
-
-<!--<script>-->
-<!--    $(document).ready(function() {-->
-<!--        $('#timepicker').timepicker({-->
-<!--            format: 'HH:mm',-->
-<!--            showMeridian: false,-->
-<!--            icons: {-->
-<!--                up: 'fas fa-chevron-up',-->
-<!--                down: 'fas fa-chevron-down'-->
-<!--            }-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
-
-<script>
     $(function () {
         //Initialize Select2 Elements
         $('.select2').select2()
@@ -214,9 +183,11 @@ if (isset($_SESSION["logged"]["last_activity"])){
         $('[data-mask]').inputmask()
 
         //Date picker
+
         $('#reservationdate').datetimepicker({
             format: 'L'
         });
+
 
         //Date and time picker
         $('#reservationdatetime').datetimepicker({ icons: { time: 'far fa-clock' } });

@@ -56,6 +56,14 @@ function updatetime(){
 	$('.medchange').html(gg);
 }
 
+function selectTime() {
+	var selectedTime = $('#timepkr').val();
+	if (selectedTime !== '') {
+		updatetime(); // Aktualizuje wyświetlaną godzinę na podstawie wybranego czasu
+		$('.tpicker').hide(); // Ukrywa formularz TimePicker
+		showpicker = 0;
+	}
+}
 $(function(){
 
 	var pickerhtml = '<div class="tpicker"><div class="pk1"><div class="row"><div class="hr"><i class="fa fa-angle-up hrup"></i><a class="hrhere">12</a><i class="fa fa-angle-down hrdown"></i></div><div class="dot2">:</div><div class="hr">	<i class="fa fa-angle-up minup"></i><a class="minhere">00</a><i class="fa fa-angle-down mindown"></i></div><div class="dot"><button type="button" class="btn btn-primary medchange">AM</button></div></div></div><div class="pk2 mintt"><table class="table table-bordered mintable"><tr><td>00</td><td>05</td><td>10</td><td>15</td></tr><tr><td>20</td><td>25</td><td>30</td><td>35</td></tr><tr><td>40</td><td>45</td><td>50</td><td>55</td></tr></table></div><div class="pk2 hrtt"><table class="table table-bordered hrtable"><tr><td>01</td><td>02</td><td>03</td><td>04</td></tr><tr><td>05</td><td>06</td><td>07</td><td>08</td></tr><tr><td>09</td><td>10</td><td>11</td><td>12</td></tr></table></div></div>';
@@ -102,21 +110,34 @@ $(function(){
 		$('.mintt').hide();
 		fmi = parseInt(vaa);updatetime();
 	});
+
+
+
+	$('#timepkr').click(function() {
+		showpickers('timepkr', 24);
+	});
+
+	$('#timepkr').blur(function() {
+		selectTime();
+	});
 });
+
+
 
 
 // ChatGPT
 
 function calculateEndTime() {
-	var startTime = document.getElementById("timepkr").value;
-	var hoursInput = document.getElementById("hoursInput").value;
+	var hoursInput = document.getElementById('hoursInput');
+	var startTime = moment(document.getElementById('timepkr').value, 'HH:mm');
+	var endTimeDisplay = document.getElementById('endTimeDisplay');
 
-	// Oblicz godzinę zakończenia
-	var startTimeObj = moment(startTime, "HH:mm");
-	var endTimeObj = startTimeObj.clone().add(hoursInput, "hours");
-	var endTime = endTimeObj.format("HH:mm");
-
-	// Wyświetl godzinę zakończenia
-	document.getElementById("endTimeDisplay").innerText = endTime;
+	if (startTime.isValid() && hoursInput.value !== '') {
+		var endTime = startTime.clone().add(hoursInput.value, 'hours');
+		endTimeDisplay.value = endTime.format('HH:mm');
+	} else {
+		endTimeDisplay.value = '';
+	}
 }
+
 
