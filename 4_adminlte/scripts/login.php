@@ -32,6 +32,7 @@
                     $_SESSION["logged"]["session_id"] = session_id();
                     $_SESSION["logged"]["role_id"] = $user["role_id"];
                     $_SESSION["logged"]["last_activity"] = time();
+                    $_SESSION["logged"]["user_id"] = $user["id"];
 
 //					//czas sesji
                 $sessionLifeTime = ini_get("session.gc_maxlifetime");

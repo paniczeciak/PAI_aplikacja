@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["logged"]) || session_status() != 2){
-header("location: ../");
+    header("location: ../");
 }else{
     switch($_SESSION["logged"]["role_id"]){
         case 1:
@@ -86,12 +86,12 @@ if (isset($_SESSION["logged"]["last_activity"])) {
 
     <!-- Main Sidebar Container -->
     <?php
-    require_once "./$role_path/show_tables/show_tables_aside.php";
+    require_once "./$role_path/current_reservations/current_reservations_aside.php";
     ?>
 
     <!-- Content Wrapper. Contains page content -->
     <?php
-    require_once "./$role_path/show_tables/show_tables_content.php";
+    require_once "./$role_path/current_reservations/current_reservations_content.php";
     ?>
 
     <!-- /.content-wrapper -->

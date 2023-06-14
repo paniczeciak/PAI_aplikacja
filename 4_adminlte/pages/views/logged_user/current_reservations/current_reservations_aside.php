@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="logged.php" class="brand-link">
         <img src="../../dist/img/logo-kukla-inicjal.png" alt="Kukła Logo" class="brand-image-xl" style="opacity: .8">
         <span class="brand-text font-weight-light">Restauracje KUKŁA</span>
     </a>
@@ -9,11 +9,7 @@
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <?php
-                echo '<img src="../../dist/img/'.$_SESSION["logged"]["logo"].'" class="img-circle elevation-2" alt="User Image">';
-                ?>
-            </div>
+
             <div class="info">
                 <a href="#" class="d-block"><?php echo $_SESSION["logged"]["firstName"]." ".$_SESSION["logged"]["lastName"] ?></a>
             </div>
@@ -52,13 +48,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
+                            <a href="../../scripts/current_reservations.php" class="nav-link active">
 
                                 <p>Bieżące rezerwacje</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./index3.html" class="nav-link">
+                            <a href="#" class="nav-link">
 
                                 <p>Mój profil</p>
                             </a>

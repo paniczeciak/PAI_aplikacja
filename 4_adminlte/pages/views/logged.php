@@ -16,16 +16,19 @@
     }
   }
 
-  if (isset($_SESSION["logged"]["last_activity"])){
-    $lastActivityTime = $_SESSION["logged"]["last_activity"];
-    $currentTime = time();
-    $sessionTimeout = 30;
-    if ($currentTime - $lastActivityTime <= $sessionTimeout){
-      echo "<script>console.log('Sesja aktywna')</script>";
-    }else{
-	    echo "<script>console.log('Sesja nieaktywna')</script>";
+if (isset($_SESSION["logged"]["last_activity"])) {
+    $sessionTimeout = 30; // Czas wygaśnięcia sesji w sekundach
+
+    // Sprawdź, czy sesja jest aktywna
+    if (time() - $_SESSION["logged"]["last_activity"] <= $sessionTimeout) {
+        // Odśwież czas ostatniej aktywności
+        $_SESSION["logged"]["last_activity"] = time();
+
+        echo "<script>console.log('Sesja aktywna')</script>";
+    } else {
+        echo "<script>console.log('Sesja nieaktywna')</script>";
     }
-  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

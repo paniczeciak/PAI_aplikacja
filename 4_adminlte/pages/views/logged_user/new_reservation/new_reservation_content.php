@@ -87,7 +87,7 @@
                               <div class="form-group">
                                   <label>Wybierz godzinę rozpoczęcia rezerwacji:</label>
                                   <div class="input-group">
-                                      <input type="text" id="timepkr" class="form-control" placeholder="HH:MM" onclick="showpickers('timepkr',24)" onblur="hidepickers()" pattern="[0-9]{2}:[0-9]{2}" name="start_time" "/>
+                                      <input type="text" id="timepkr" class="form-control" placeholder="HH:MM" onclick="showpickers('timepkr',24)" pattern="[0-9]{2}:[0-9]{2}" name="start_time" "/>
                                       <button type="button" class="btn btn-primary" onclick="showpickers('timepkr',24)">
                                           <i class="far fa-clock"></i>
                                       </button>
